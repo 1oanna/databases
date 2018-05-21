@@ -42,6 +42,9 @@ Create a database called world and source the SQL data into the database databas
 
 
 
+
+
+
 --------- Homework week 2 -----------
 
 Create a database called todo_app.
