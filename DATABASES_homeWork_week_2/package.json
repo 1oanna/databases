@@ -1,0 +1,15 @@
+{
+  "name": "DATABASES_homeWork_week_2",
+  "version": "1.0.0",
+  "description": "Connect a database with the server using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mysql","node"],
+  "author": "Ioanna Talasli",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
+}
