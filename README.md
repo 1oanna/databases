@@ -41,15 +41,6 @@ Create a database called world and source the SQL data into the database databas
 Deadline : 16/05/2018 --- Submission date : 15/05/2018
 
 
-
-
-
-
-
-
-
-
-
 --------- Homework week 2 -----------
 
 Create a database called todo_app.
@@ -70,13 +61,6 @@ Make a program in order for your newly created user to be able to extract TODOs 
 Deadline : 23/05/2018 --- Submission date : 21/05/2018
 
 
-
-
-
-
-
-
-
 -------- Homework week 3 ----------- 
 
 Using an entity relationship diagram, design the data model for an application of your choice, this could be anything.
@@ -85,5 +69,22 @@ Your application must include at least one many-to-many relationship and any sup
 Next, using the entity relationship diagram as a starting point, write all the necessary CREATE TABLE statements to create all tables and relationships (foreign key constraints) for this data model.
 
 Deadline : 30/05/2018 --- Submission date : 27/05/2018
+
+
+-------- Walkthrough guide to MongoDB by Ioanna Talasli May 2018 -----------
+
+This is a simple text file, to use as help guide for installing Mongo DB and later write code to perform basic CreateReadUpdateDelete functions as described in comments.
+It contains all the necessary prompts that need to be passed in windows 10 shell with administrator rights, in order to create a NoSQL database using MongoDB.
+
+P.S 1: When ever you see // and //-- and --> are my help comments and NOT CODE TO USE in your terminal
+
+P.S 2: This is a help guide I used in class and it refers to absolute beginners. It is simple sample to begin with MongoDB. 
+
+----- Thank you for taking time to visit my Databases repository. -----
+
+---- Any constructive feedback on my work, will be greatly appreciated. ----
+
+
+
 
 
