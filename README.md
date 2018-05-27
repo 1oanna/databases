@@ -38,7 +38,7 @@ Create a database called world and source the SQL data into the database databas
 
 -- What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
 
-Deadline : 16/05/2018  Submission date : 15/05/2018
+Deadline : 16/05/2018 --- Submission date : 15/05/2018
 
 
 
@@ -67,7 +67,7 @@ Use the newly created user credentials (username, password) in the connector of 
 Make a program in order for your newly created user to be able to extract TODOs from the database, update them, and delete them via mysql command prompt while the program runs on node.
 
 
-Deadline : 23/05/2018  Submission date : 21/05/2018
+Deadline : 23/05/2018 --- Submission date : 21/05/2018
 
 
 
@@ -84,6 +84,6 @@ Your application must include at least one many-to-many relationship and any sup
 
 Next, using the entity relationship diagram as a starting point, write all the necessary CREATE TABLE statements to create all tables and relationships (foreign key constraints) for this data model.
 
-Deadline : 30/05/2018  Submission date : 27/05/2018
+Deadline : 30/05/2018 --- Submission date : 27/05/2018
 
 
