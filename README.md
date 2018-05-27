@@ -38,6 +38,11 @@ Create a database called world and source the SQL data into the database databas
 
 -- What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
 
+Deadline : 16/05/2018  Submission date : 15/05/2018
+
+
+
+
 
 
 
@@ -62,6 +67,14 @@ Use the newly created user credentials (username, password) in the connector of 
 Make a program in order for your newly created user to be able to extract TODOs from the database, update them, and delete them via mysql command prompt while the program runs on node.
 
 
+Deadline : 23/05/2018  Submission date : 21/05/2018
+
+
+
+
+
+
+
 
 
 -------- Homework week 3 ----------- 
@@ -70,5 +83,7 @@ Using an entity relationship diagram, design the data model for an application o
 Your application must include at least one many-to-many relationship and any supporting tables (associative entities) that are needed. The entity relationship diagram must describe what tables you will need, the columns in these tables, which column is the primary key, and the relationships between tables.
 
 Next, using the entity relationship diagram as a starting point, write all the necessary CREATE TABLE statements to create all tables and relationships (foreign key constraints) for this data model.
+
+Deadline : 30/05/2018  Submission date : 27/05/2018
 
 
