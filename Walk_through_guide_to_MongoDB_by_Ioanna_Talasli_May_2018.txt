@@ -1,0 +1,227 @@
+--- Walk-through guide to MongoDB by Ioanna Talasli, May 2018 ---
+
+----This is a simple text file, to use as help guide for installing Mongo DB and later write code to perform basic CreateReadUpdateDelete functions as described in comments.
+It contains all the necessary prompts that need to be passed in windows 10 shell with administrator rights, in order to create a NoSQL database using MongoDB.----
+
+P.S 1: When ever you see // and //-- and --> are my help comments and NOT CODE TO USE in your terminal
+P.S 2: This is a help guide I used in class and it refers to absolute beginners. It is simple sample to begin with MongoDB. Practice on your own and see what happens, with each line of code.
+
+go to https://www.mongodb.com/
+on the right you will see Download button press it and in the next page go to Community Server choose your operating system, ex.I use windows 10 64 bit, find the appropriate version for you and click download.
+When the downloading is complete start the installation, choose custom and select a different folder with browse there create a folder called MongoDB (up and right there is an icon called new folder) the path could be C:\MongoDB hit next until you see an option ticked with mongo compass untick that !! hit next and in the end click finish.
+
+After you are done with your installation
+go to the folder where you installed previously the downloaded program inside the MongoDB folder we created and there you will find 3 folders if the installation was successful
+A) a folder called data, inside that a folder called db (we created these) 
+B) a folder called log (we created this) and 
+C) a folder called bin (this was created by the system during successful installation). 
+Now inside the folder bin open your command line/windows shell with administrator privileges. 
+Let's begin... 
+
+
+.\mongod --directoryperdb --dbpath C:\MongoDB\data\db --logpath C:\MongoDB\log\mongo.log --logappend --install
+
+net start MongoDB // to start the server
+
+.\mongo // gets you to mongo shell
+
+show dbs // shows all the databases
+
+use customers // creates database called customers and accesses it
+
+db // to check in which database we are in
+
+//----CREATE
+
+//---to create a user copy the code inside the terminal
+db.createUser({
+	user: "InsertTheUserName",
+	pwd:"1234",
+	roles:["readWrite","dbAdmin"]
+});
+
+//get it the database customers
+use customers
+
+//create a collection called customer (like a table in mySql) in the database called customers
+db.createCollection("customer");
+
+//to check the collection is there
+show collections
+
+//to insert single data into the collection pass an object
+//copy and paste the code
+db.customer.insert({
+	firstname:"John",
+	lastname:"Doe"
+});
+
+//to check the data inserted into the collection
+db.customer.find()
+
+//to insert multiple data into the collection pass an array containg various objects
+//copy and paste the code
+db.customer2.insert([
+{
+	firstname:"Mary",
+	lastname:"Queen"
+},
+{
+	firstname:"George",
+	lastname:"Green"
+}
+
+]);
+
+//to check the data inserted into the collection printed out in the form of an object
+db.customer.find().pretty();
+
+
+//in mondoDB the schema is dynamic which means we can insert as many fields in an entry as we want despite the previous 
+//copy and paste the code
+
+db.customer.insert({
+	firstname:"Niki",
+	lastname:"Kok",
+	gender:"female"
+});
+
+//we can add whatever kind of datata type we want ex. string, number, array, object etc
+
+db.customer.insert({
+	firstname : "Bob",
+	lastname : "Cake",
+	gender : "male",
+	address : {
+		Street : "Greendash",
+		Number : 25,
+		PostCode : 14536
+	},
+	roles : [
+		"father",
+		"single",
+		"superhero"
+		]
+});
+
+//---UPDATE
+//to update an entry in the collection customer ex. "John Doe" to "Peter...."
+
+db.customer.update({
+	firstname : "John"
+},{
+	firstname : "Peter",
+	lastname : "Brown",
+	gender : "male"
+}
+);
+
+
+//to update an entry in the collection customer ex. "Peter" gender to "transgender"
+
+db.customer.update({
+	firstname : "Peter"
+},{
+	$set :{gender : "transgender"}
+}
+);
+
+//to update a value in an entry in the collection customer ex. to "Peter" age:25 
+
+db.customer.update({
+	firstname : "Peter"
+},{
+	$set :{age : 25}
+}
+);
+
+
+//to update a value in an entry in the collection customer ex. delete "Peter" gender 
+
+db.customer.update({
+	firstname : "Peter"
+},{
+	$unset :{gender : 1}
+}
+);
+
+//use update for an entry ex. firstname : "Diana" if that does not exist create it with the help of upsert setted to TRUE
+
+db.customer.update({
+	firstname : "Diana"
+},{
+	firstname : "Diana",
+	lastname : "Queen"
+},{
+	upsert : true
+});
+
+//to rename a key of an entry ex. change Niki's key gender to sex
+
+db.customer.update({
+	firstname : "Niki"
+},{
+	$rename : {"gender" : "sex"}
+}
+);
+
+//--- READ
+//-- miscellaneous functions -- methods
+
+
+//.sort ex. sort by lastname in ascending order A--->Z
+
+db.customer.find().sort({lastname:1});
+
+
+//.sort ex. sort by lastname in descending order Z--->A
+
+db.customer.find().sort({lastname:-1});
+
+//.count() --> to find the number of entries
+
+db.customer.find().count();
+
+//.count() --> to find all the entries with the condition "female"
+
+db.customer.find({sex : "female"}).count();
+
+//.limit() -->to find the first ex.3 entries
+
+db.customer.find().limit(3);
+
+
+//combining methods ex. limit + sort -->print the first 3 entries by sorting them on firstname in ascending order
+
+db.customer.find().limit(3).sort({firstname:1});
+
+//use forEach function
+
+db.customer.find().forEach(function(param){print("customer name : " + param.firstname)});
+-->prints customer name : Peter 
+--> etc
+
+db.customer.find().forEach(function(param){print("customer name : " + param.firstname + " " + param.lastname)});
+
+-->prints customer name : Peter Brown
+--> etc
+
+
+//----DELETE
+//--remove the entry where the first name is George
+db.customer.remove({firstname : "George"});
+
+//--remove only one entry where sex is female 
+db.customer.remove({sex:"female"},{justOne : true});
+
+//--remove a specific collection ex.customer2
+db.customer2.drop();
+show collections ----> I see that customer2 is no longer there
+
+//--remove a specific database ex.customers
+use customers
+db.dropDatabase();
+show dbs ----> I see that customers is no longer there
+
+--- Thank you for taking time to read my simple guide. Any constructive feedback, will be greatly appreciated. ---
+
